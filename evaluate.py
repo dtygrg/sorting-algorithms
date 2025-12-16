@@ -27,7 +27,7 @@ def test_sorting(sorting_funcs: list[Callable[[list[CountedComparisons]], None]]
     for sorting_func in sorting_funcs:
         arrays_copy = deepcopy(unsorted_arrays)
         correct = True
-        total_time = 0
+        total_time = 0.0
         total_comparisons = 0
         for i in range(num_trials):
             CountedComparisons.reset()
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     use_funcs = list(range(len(sorting_funcs)))
 
-    for i, length in tqdm(enumerate(lengths)):
+    for i, length in enumerate(tqdm(lengths)):
         times, comps = test_sorting([sorting_funcs[idx] for idx in use_funcs], 2, length)
         time_taken[use_funcs, i] = times
         comparisons[use_funcs, i] = comps

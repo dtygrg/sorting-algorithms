@@ -61,8 +61,8 @@ def merge(arr: list[CountedComparisons], left: int, mid: int, right: int):
     num_left = mid - left + 1
     num_right = right - mid
 
-    left_arr = [0] * num_left
-    right_arr = [0] * num_right
+    left_arr = [CountedComparisons(0)] * num_left
+    right_arr = [CountedComparisons(0)] * num_right
 
     for i in range(num_left):
         left_arr[i] = arr[left + i]
